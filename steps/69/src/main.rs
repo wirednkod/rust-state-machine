@@ -71,7 +71,7 @@ impl Runtime {
 			self.system.inc_nonce(&caller);
 			let _res = self.dispatch(caller, call).map_err(|e| {
 				eprintln!(
-					"Extrinsic Error\n\tBlock Number: {}\n\tExtrinsic Number: {}\n\tError: {}",
+					"Extrinsic Error\n\tBlock Number: {}\n\tExtrinsic Number: {}\n\tError: {:#?}",
 					block.header.block_number, i, e
 				)
 			});
@@ -137,6 +137,7 @@ fn main() {
 		],
 	};
 
+	/* TODO: Update the extrinsics below for the updated format after the macros. */
 	let block_2 = types::Block {
 		header: support::Header { block_number: 2 },
 		extrinsics: vec![

@@ -1,4 +1,4 @@
 {
   "_Note": "This file will not be included in your final gitorial.",
-  "commitMessage": "solution: introduce proof of existence module"
+  "commitMessage": "template: add proof of existence functions with tests"
 }

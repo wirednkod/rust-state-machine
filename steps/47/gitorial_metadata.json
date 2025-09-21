@@ -1,4 +1,4 @@
 {
   "_Note": "This file will not be included in your final gitorial.",
-  "commitMessage": "solution: implement basic dispatch for transfer"
+  "commitMessage": "template: use execute_block for main logic"
 }

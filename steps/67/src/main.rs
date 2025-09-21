@@ -71,7 +71,7 @@ impl Runtime {
 			self.system.inc_nonce(&caller);
 			let _res = self.dispatch(caller, call).map_err(|e| {
 				eprintln!(
-					"Extrinsic Error\n\tBlock Number: {}\n\tExtrinsic Number: {}\n\tError: {}",
+					"Extrinsic Error\n\tBlock Number: {}\n\tExtrinsic Number: {}\n\tError: {:#?}",
 					block.header.block_number, i, e
 				)
 			});
@@ -125,6 +125,7 @@ fn main() {
 		extrinsics: vec![
 			support::Extrinsic {
 				caller: alice.clone(),
+				/* TODO: Update the enum name to match what is generated with the macro. */
 				call: RuntimeCall::Balances(balances::Call::Transfer {
 					to: bob.clone(),
 					amount: 30,

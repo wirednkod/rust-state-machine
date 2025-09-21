@@ -71,7 +71,7 @@ impl Runtime {
 			self.system.inc_nonce(&caller);
 			let _res = self.dispatch(caller, call).map_err(|e| {
 				eprintln!(
-					"Extrinsic Error\n\tBlock Number: {}\n\tExtrinsic Number: {}\n\tError: {}",
+					"Extrinsic Error\n\tBlock Number: {}\n\tExtrinsic Number: {}\n\tError: {:#?}",
 					block.header.block_number, i, e
 				)
 			});
@@ -134,9 +134,17 @@ fn main() {
 		],
 	};
 
+	/*
+		TODO:
+		Create new block(s) which execute extrinsics for the new `ProofOfExistence` pallet.
+			- Make sure to set the block number correctly.
+			- Feel free to allow some extrinsics to fail, and see the errors appear.
+	*/
+
 	// Execute the extrinsics which make up our block.
 	// If there are any errors, our system panics, since we should not execute invalid blocks.
 	runtime.execute_block(block_1).expect("invalid block");
+	/* TODO: Execute your new block(s). */
 
 	// Simply print the debug format of our runtime state.
 	println!("{runtime:#?}");
